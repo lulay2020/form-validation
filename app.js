@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const methodOverride = require('method-override');
 const expressLayouts = require('express-ejs-layouts');
