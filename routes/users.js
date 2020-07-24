@@ -47,17 +47,6 @@ router.get('/auth/google/callback',
   	}
 );
 
-router.get('/auth/linkedin',
-  	passport.authenticate('linkedin', { state: 'SOME STATE'  })
-);
-
-router.get('/auth/linkedin/callback', 
-	passport.authenticate('linkedin', {
-  		successRedirect: '/dashboard',
-  		failureRedirect: '/'
-	})
-);
-
 // GET /auth/facebook
 router.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
 
