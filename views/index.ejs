@@ -1,0 +1,106 @@
+<!-- Form is from Florin Pop https://codepen.io/FlorinPop17/pen/vPKWjd -->
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+	    <!-- Sign Up form code goes here -->
+		<form action="register" method="POST">
+		    <h1>Create Account</h1>
+		    <div class="social-container">
+		        <a href="/auth/facebook" class="social"><i class="fab fa-facebook-f"></i></a>
+			    <a href="/auth/google" class="social"><i class="fab fa-google-plus-g"></i></a>
+			</div>
+		    <span>or use your email for registration</span>
+		    <input 
+		    	type="text" 
+		    	placeholder="Name" 
+		    	name="name"
+		    	id="register-name" 
+		    	value="<%= typeof name != 'undefined' ? name : '' %>"/>
+		    <input 
+		    	type="email" 
+		    	placeholder="Email" 
+		    	name="email"
+		    	id="register-email"
+		    	value="<%= typeof email != 'undefined' ? email : '' %>"/>
+		    <div class="password-container">
+			    <input 
+			    	type="password" 
+			    	placeholder="Password" 
+			    	name="password"
+			    	id="password"
+			    	/>
+			    <input 
+			    	type="password" 
+			    	placeholder="Confirm Password"
+			    	name="password2"
+			    	id="password2"
+			    	/>	
+		    </div>  
+		    <div id="check-len-msg"></div>
+		    <div id="check-match-msg"></div>
+		   	<button class="ui yellow disabled button" id="register-btn">Sign Up</button>
+		</form>
+    </div>
+    <div class="form-container sign-in-container">
+	    <!-- Sign In form code goes here -->
+	    <form action="login" method="POST">
+	        <h1>Sign in</h1>
+	        <div class="social-container">
+	            <a href="/auth/facebook" class="social"><i class="fab fa-facebook-f"></i></a>
+		        <a href="/auth/google" class="social"><i class="fab fa-google-plus-g"></i></a>
+	        </div>
+	        <span>or use your account</span>
+	        <input 
+	        	type="email" 
+	        	placeholder="Email" 
+	        	name="email"
+	        	id="login-email"
+	        	value="<%= typeof email != 'undefined' ? email : '' %>"/>
+	        <input 
+	        	type="password" 
+	        	placeholder="Password" 
+	        	name="password"
+	        	id="login-password"/>
+	        <a href="/forgot-password">Forgot your password?</a>
+	        <button class="ui yellow disabled button" id="login-btn">Sign In</button>
+	    </form>
+   	</div>
+	<div class="overlay-container">
+        <!-- The overlay code goes here -->
+        <div class="overlay">
+	        <div class="overlay-panel overlay-left">
+	            <h1>Welcome Back!</h1>
+	            <p>
+	                To keep connected with us please login with your personal info
+	            </p>
+	            <button class="ghost" id="signIn">Sign In</button>
+	        </div>
+	        <div class="overlay-panel overlay-right">
+	            <h1>Hello, Friend!</h1>
+	            <p>Enter your personal details and start journey with us</p>
+	            <button class="ghost" id="signUp">Sign Up</button>
+	        </div>
+	    </div>
+    </div>
+</div>
+<script src="/scripts/index.js"></script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '3189471807785642',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v7.0'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>

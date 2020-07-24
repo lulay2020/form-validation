@@ -1,0 +1,36 @@
+<div style="padding: 6em;">
+	<h1 class="ui header">Reset Password</h1>
+
+	<form action="/reset/<%= token %>?_method=PUT" method="POST">
+		<div>
+			<label for="password">New Password</label>
+			<input 
+				type="password" 
+				name="password" 
+				id="password" 
+				placeholder="new password" 
+				autofocus
+				>
+		</div>
+		<div>
+			<label for="confirm">Confirm Password</label>
+			<input 
+				type="password" 
+				name="confirm" 
+				id="password2" 
+				placeholder="confirm password"
+				>
+		</div>
+		<div id="check-len-msg"></div>
+		<div id="check-match-msg"></div>
+		<div>
+			<input 
+				type="submit" 
+				value="Update Password" 
+				class="ui disabled brown button"
+				id="submit-btn" 
+				>
+		</div>
+	</form>
+</div>
+<script src="/scripts/reset.js"></script>

@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap');
+
+*{
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Montserrat', sans-serif;
+	background: #f6f5f7;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+}
+
+h1{
+	font-weight: bold;
+	margin: 0;
+}
+
+p{
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: .5px;
+	margin: 20px 0 30px;
+}
+
+span{
+	font-size: 12px;
+}
+
+a{
+	color: #333;
+	font-size: 14px;
+	text-decoration: none;
+	margin: 15px 0;
+}
+
+form{
+	background: #fff;
+}
+
+input{
+	background: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+}
+
+label{
+	display: block;
+}
+
+button{
+	border-radius: 20px;
+	border: 1px solid #ff4b2b;
+	background: #ff4b2b;
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+button:active{
+	transform: scale(0.95);
+}
+
+button:focus{
+	outline: none;
+}
+
+button.ghost{
+	background: transparent;
+	border-color: #fff;
+}
+
+.container{
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+	position: relative;
+	overflow: hidden;
+	width: 768px;
+	max-width: 100%;
+	min-height: 600px;
+}
+
+.form-container form{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: 100%;
+	padding: 0 50px;
+}
+
+.social-container{
+	margin: 20px 0;
+}
+
+.social-container a{
+	border: 1px solid #ddd;
+	border-radius: 50%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 5px;
+	height: 40px;
+	width: 40px;
+}
+
+.form-container input {
+	width: 100%;
+}
+
+.green{
+	color: green;
+}
+
+.red{
+	color: red;
+}
+
+.form-container{
+	position: absolute;
+	top: 0;
+	height: 100%;
+	transition: all .6s ease-in-out;
+}
+
+.sign-in-container{
+	left: 0;
+	width: 50%;
+	z-index: 2;
+}
+
+.sign-up-container{
+	left: 0;
+	width: 50%;
+	z-index: 1;
+	opacity: 0;
+}
+
+.overlay-container{
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+	transition: transform 0.6s ease-in-out;
+	z-index: 100;
+}
+
+.overlay{
+	background: #ff416c;
+	background: linear-gradient(to right, #ff4b2b, #ff416c) no-repeat 0 0 / cover;
+	color: #fff;
+	position: relative;
+	left: -100%;
+	height: 100%;
+	width: 200%;
+	transform: translateX(0);
+	transition: transform .6s ease-in-out;
+}
+
+.overlay-panel{
+	position: absolute;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0 40px;
+	height: 100%;
+	width: 50%;
+	text-align: center;
+	transform: translateX(0);
+	transition: transform .6s ease-in-out;
+}
+
+.overlay-right{
+	right: 0;
+	transform: translateX(0);
+}
+
+.overlay-left{
+	transform: translateX(-20%);
+}
+
+/*Animation*/
+/*move sign in to the right*/
+.container.right-panel-active .sign-in-container{
+	transform: translateX(100%);
+}
+
+/*move overlay tp the left*/
+.container.right-panel-active .overlay-container{
+	transform: translateX(-100%);
+}
+
+/*bring sign up over sign in*/
+.container.right-panel-active .sign-up-container{
+	transform: translateX(100%);
+	opacity: 1;
+	z-index: 5;
+}
+
+/*move overlay back to right*/
+.container.right-panel-active .overlay{
+	transform: translateX(50%);
+}
+
+/* display text from left and center it */
+.container.right-panel-active .overlay-left{
+	transform: translateX(0);
+}
+
+/* display text from right and center it */
+.container.right-panel-active .overlay-right{
+	transform: translateX(20%);
+}
+
+@media(max-width: 844px){
+	.container{
+		min-height: 85vh;
+		width: 88vw;
+	}
+
+	h1{
+		font-weight: bold;
+		margin: 0;
+		font-size: 1.54em;
+	}
+
+	div#check-len-msg, 
+	div#check-match-msg{
+		font-size: 11px;
+	}
+
+	input{
+		padding: 7.8px 15px;
+		font-size: 9px;
+	}
+
+	a{
+		margin: 6px;
+	}
+
+	.ui.button{
+		font-size: .899em;
+	}
+
+	.form-container form{
+		padding: 0 45px;
+	}
+
+	.form-container input {
+		margin: 5px;
+	}
+
+	.social-container{
+		margin: 4.55px;
+	}
+
+	.social-container a{
+		margin: 0 5px;
+		height: 35px;
+		width: 35px;
+	}
+
+	.sign-in-container, .sign-up-container{
+		height: 50%;
+		width: 100%;
+	}
+
+	.overlay-container{
+		left: 0;
+		top: 50%;
+		height: 100%;
+		width: 100%;
+	}
+	
+	.overlay{
+		left: 0;
+		top: 0;
+		width: 100%;
+		transform: translateY(0);
+		transition: transform .6s ease-in-out;
+	}
+
+	.overlay-panel{
+		top: 0;
+		height: 50%;
+		width: 100%;
+		transform: translateY(0);
+	}
+
+	.overlay-right{
+		bottom: 0;
+		transform: translateY(0);
+	}
+
+	.overlay-left{
+		transform: translateY(-200%);
+	}
+
+	/*Animation*/
+	/*move sign in to the right*/
+	.container.right-panel-active .sign-in-container{
+		transform: translateY(100%);
+	}
+
+	/*move overlay tp the left*/
+	.container.right-panel-active .overlay-container{
+		transform: translateY(-100%);
+	}
+
+	/*bring sign up over sign in*/
+	.container.right-panel-active .sign-up-container{
+		transform: translateY(100%);
+		opacity: 1;
+		z-index: 5;
+	}
+
+	/*move overlay back to right*/
+	.container.right-panel-active .overlay{
+		transform: translateY(50%);
+	}
+
+	/* display text from left and center it */
+	.container.right-panel-active .overlay-left{
+		transform: translateY(0);
+	}
+
+	/* display text from right and center it */
+	.container.right-panel-active .overlay-right{
+		transform: translateY(200%);
+	}
+
+	.password-container{
+		display: flex;
+	}
+
+	.password-container input{
+		width: 50%; 
+		display: inline; 
+		margin: 0;
+	}
+
+	#password{
+		margin-right: .43em;
+	}
+
+}
